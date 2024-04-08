@@ -5,10 +5,10 @@ import ReviewData from '../../api/ReviewData';
 
 const Reviews = () => {
     const { reviews } = useContext(Data);
-    const pictures = ['','','','',''];
+    const pictures = [`${process.env.PUBLIC_URL}/assets/allmovies/user1.jpg`, `${process.env.PUBLIC_URL}/assets/allmovies/user2.png`, `${process.env.PUBLIC_URL}/assets/allmovies/user3.png`, `${process.env.PUBLIC_URL}/assets/allmovies/user4.png`];
 
     const reviewDiv = (data, index) => {
-        let randnum = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
+        let randnum = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
         return (
             <div key={index}>
                 <figure>

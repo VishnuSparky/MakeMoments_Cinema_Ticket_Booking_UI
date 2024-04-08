@@ -1,0 +1,75 @@
+.notification{
+    width: 100%;
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.notification section{
+    background-color: rgba(107, 107, 107, 0.45);
+    border-radius: 20px;
+    padding: 15px 20px;
+    margin-top: 40px;
+}
+
+.notification section img{
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin: 10px auto;
+}
+
+.notification section>:nth-child(2)>:first-child{
+    font-size: 1.5rem;
+    color: var(--mainColor);
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.notification section>:nth-child(2)>:last-child{
+    margin-bottom: 10px;
+}
+.notification section>:nth-child(3)>:last-child{
+    margin-bottom: 10px;
+}
+
+.notification section button{
+    background-color: var(--mainColor);
+    color: black;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    width: max-content;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 40px;
+    position: relative;
+    bottom: -25px;
+}
+.notification>button{
+    position: fixed;
+    background-color: var(--mainColor);
+    color: black;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    width: max-content;
+    border-radius: 20px;
+    bottom: 90px;
+    right: 90px
+}
+.notification .notickets{
+    font-size: 2rem;
+    color: var(--mainColor);
+    text-transform: capitalize;
+    background-color:  rgba(107, 107, 107, 0.45);
+    width: 600px;
+    height: 300px;
+    border-radius: 40px;
+    border: 2px solid white;
+    padding: 90px;
+    padding-top: 120px;
+}

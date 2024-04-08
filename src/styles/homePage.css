@@ -1,0 +1,186 @@
+.homePage .updates{
+    width: 100%;
+    height: 100vh;
+}
+
+.homePage .updates>img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.homePage .updates .container{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.homePage .updates .container>h2 {
+    width: max-content;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 5px black;
+    letter-spacing: .5ch;
+    margin: 3rem 2rem 0 auto;
+    color: var(--mainColor);
+    font-size: 1.7rem;      /* for update title*/
+}
+
+.homePage .updates .container>div{
+    width: 686px;
+    background-color: rgba(107, 107, 107, 0.45);
+    padding: 1.25rem 2rem 1.3rem 3.5rem;
+    display: flex;
+    gap: 2rem;
+    border-bottom-right-radius: 40px;
+}
+
+.homePage .updates .container>div img{
+    width: 208px;
+    height: 212px;
+    display: block;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.homePage .updates .container>div .details{
+    text-transform: capitalize;
+    margin: auto 0;
+}
+
+.homePage .updates .container>div .details h3{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.homePage .updates .container>div .details a{
+    display: block;
+    color: var(--mainColor);
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.homePage .updates .container>div svg{
+    font-size: 4.5rem;
+    color: var(--mainColor);
+    margin: auto 0;
+    position: relative;
+    left: 100px;
+}
+
+.homePage .searchBox {
+    width: max-content;
+    margin: 2rem auto;
+}
+
+.homePage .searchBox input{
+    width: 60vw;
+    height: 50px;
+    background-color: var(--mainColor);
+    color: black;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding-left: 3%;
+}
+
+.homePage .searchBox input::placeholder{
+    color: white; 
+}
+.homePage #searchBox:focus{
+    background-color: black;
+    color: var(--mainColor);
+}
+
+.homePage .searchBox button{
+    background-color: transparent;
+    position: relative;
+    left: -60px;
+    color: white;
+    font-size: 1rem;
+}
+.homePage .movies img, .homePage .animes img, .homePage .games img{
+    display: block;
+    width: 180px;
+    height: 280px;
+    object-fit: cover;
+}
+
+.homePage .movies , .homePage .animes, .homePage .games{
+    width: 80%;
+    height: 930px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    background-color: rgba(107, 107, 107, 0.45);
+    border-radius: 10px;
+}
+.homePage .movies>h2, .homePage .animes>h2, .homePage .games>h2{
+    color: var(--mainColor);
+    width: max-content;
+    margin: 40px auto 40px auto;
+    font-size: 2rem;
+}
+
+.homePage .movies .kollywood h3,.homePage .movies .allMovies h3{
+    margin: 20px 50px 20px auto;
+    width: max-content;
+    font-size: 1.3rem;
+}
+
+
+.homePage .movies .kollywood div,.homePage .movies .allMovies div, .homePage .animes div, .homePage .games div{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.homePage .movies .kollywood div .glassmo,.homePage .movies .allMovies div .glassmo, .homePage .animes div .glassmo, .homePage .games div .glassmo{
+  background-color: rgba(107, 107, 107, 0.45);
+  padding: 10px;
+  border-radius: 10px 10px 25px 10px;
+}
+.homePage .movies .kollywood div .glassmo img,.homePage .movies .allMovies div .glassmo img, .homePage .animes div .glassmo img, .homePage .games div .glassmo img{
+    display: block;
+    object-fit: cover;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+.homePage .movies .kollywood div .glassmo img:hover,.homePage .movies .allMovies div .glassmo img:hover, .homePage .animes div .glassmo img:hover, .homePage .games div .glassmo img:hover{
+  box-shadow: 2px 2px 3px 5px  var(--mainColor);
+}
+
+.homePage .movies a, .homePage .animes a{
+    display: block;
+    color: var(--mainColor);
+    font-size: 1.2rem;
+    text-decoration: none;
+    width: max-content;
+    margin: 5px 20px 5px auto ;
+    transition: 0.2s;
+}
+.homePage .movies a:hover ,.homePage .animes a:hover{
+    background-color: black;
+    border-radius: 10px;
+    padding: 3px 10px;
+}
+
+.homePage .onepunchmanEye img{
+    width: 100%;
+    height: 100px;
+    display: block;
+    margin: 70px 0 70px 0;
+    object-fit: cover;
+}
+
+.homePage .animes ,.homePage .games{
+    height: 500px;
+}

@@ -1,0 +1,61 @@
+.payment{
+    margin-top: 10rem;
+
+    h2{
+        color: var(--mainColor);
+        font-size: 2.5rem;
+        width: max-content;
+        margin: 10px auto;
+    }
+
+    section{
+        display: flex;
+        gap: 100px;
+
+        div{
+            width: max-content;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            &>:first-child{
+                width: 50px;
+                height: 50px;
+                margin: 0 auto;
+            }
+
+            img{
+                display: block;
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+}
+
+.payment>:last-child{
+    width: max-content;
+    margin: 0 auto;
+
+    input{
+        background-color: rgba(0, 0, 0, 0.808);
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: .5rem;
+        width: 40vw;
+        border: 2px solid var(--mainColor);
+        border-radius: 10px;
+    }
+
+    button{
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: .5rem 1rem;
+        background-color: var(--mainColor);
+        color: black;
+        border-radius: 10px;
+    }
+}

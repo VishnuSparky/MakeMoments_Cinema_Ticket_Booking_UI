@@ -97,13 +97,24 @@ export const DataContext = ({ children }) => {
   },[authPage]);
 
   useEffect(()=>{
+    setAuthPage(true);
+    const requestData = async() => {
+      const data = await fetchMovies();
+      setMovies(data);
+    }
+    requestData();
+  },[]);
+
+  useEffect(()=>{
     extractData();
   },[movies]);
 
   useEffect(()=>{
     const data = getSingleMovie();
     setSingleMovie(data[0]);
-    getReview();
+    const revdata = getReview().then((value)=>{
+      setReviews(value);
+    })
   },[movieName]);
 
   useEffect(()=>{
@@ -113,14 +124,24 @@ export const DataContext = ({ children }) => {
   },[userName]);
 
   const extractData = () => {
+    let kw = [];
+    let bw = [];
+    let mw = [];
+    let upd = [];
+    let ani = [];
     movies.forEach( movie => {
-    if(movie.hashTags.toLowerCase() === '#kollywood') setKollywood([...kollywood, movie]);
-    else if(movie.hashTags.toLowerCase() === '#bollywood') setBollywood([...bollywood, movie]);
-    else if(movie.hashTags.toLowerCase() === '#mollywood') setMollywood([...mollywood, movie]);
-    else if(movie.hashTags.toLowerCase() === '#updates') setUpdates([...updates, movie]);
-    else if(movie.hashTags.toLowerCase() === '#anime') setAnime([...anime, movie]);
+    if(movie.hashTags.toLowerCase() === '#kollywood') kw.push(movie);
+    else if(movie.hashTags.toLowerCase() === '#bollywood') bw.push(movie);
+    else if(movie.hashTags.toLowerCase() === '#mollywood') mw.push(movie);
+    else if(movie.hashTags.toLowerCase() === '#updates') upd.push(movie);
+    else if(movie.hashTags.toLowerCase() === '#anime') ani.push(movie);
     else console.log(`movie with hashTag ${movie.hashTags} is exists in database`);
     });
+    setKollywood(kw);
+    setBollywood(bw);
+    setMollywood(mw);
+    setUpdates(upd);
+    setAnime(ani);
   }
 
   const fetchMovies = async() => {
@@ -157,7 +178,7 @@ export const DataContext = ({ children }) => {
       const res = await axios.post('http://localhost:3500/register',bodyForm);
       if(res && res.data) {
         successAuthentication(res.data['username'],res.data['accessToken'],res.data['profile']);
-        navigate('/');
+        navigate('/home');
       }
     } catch (err) {
       errorBoxModifier(err);
@@ -175,7 +196,7 @@ export const DataContext = ({ children }) => {
       const res = await axios.post('http://localhost:3500/auth',{ email: email, password: password});
       if(res && res.data) {
         successAuthentication(res.data['username'],res.data['accessToken'],res.data['profile']);
-        navigate('/');
+        navigate(-1);
       }
     } catch (err) {
       errorBoxModifier(err);
@@ -215,12 +236,15 @@ export const DataContext = ({ children }) => {
 
   const getReview = async() =>{
     try {
+      let duprev = [];
       const res = await axios.get('http://localhost:3500/reviews');
       if(res && res.data) {
         res.data.forEach( rev => {
-          if(rev.movie_name.toLowerCase() === movieName)
-            setReviews([...reviews, rev]);
-        })
+          if(rev.movie_name.toLowerCase() == movieName.toLowerCase()){
+            duprev.push(rev);
+          }
+        });
+        return duprev;
       }
     } catch (err) {
       if(err.response){
@@ -282,7 +306,8 @@ export const DataContext = ({ children }) => {
         screenNo :  screen.screenNo,
         show : time,
         movieName : movieName,
-        cost : cost+snacksCost,
+        cost : cost,
+        snacks : snacksCost,
         no_of_tickets : selectedSeats.length,
         seatNo : `${selectedSeats[0]} - ${selectedSeats[selectedSeats.length -1]}`,
         date : date 
@@ -295,7 +320,10 @@ export const DataContext = ({ children }) => {
       else{
         alert(`Error : ${res.status} ${res.data}`);
       }
-      navigate('/');
+      setCost(0);
+      setSnacksCost(0);
+      selectedSeats([]);
+      navigate('/notification');
     } catch (err) {
       if(err.response){
         console.log(err.response.data.message);
@@ -307,9 +335,9 @@ export const DataContext = ({ children }) => {
 
   const handleCancelTicket = async(tno) => {
     try {
-        const res = await axios.delete('http://localhost:3500/tickets',{ ticketNo : tno});
+        const res = await axios.put('http://localhost:3500/tickets',{ ticketNo : tno});
         if(res && res.data) console.log(res.data.message);
-        navigate('/');
+        navigate('/home');
     } catch (err) {
       if(err.response){
           console.log(err.response.data.message);
@@ -321,7 +349,7 @@ export const DataContext = ({ children }) => {
 
   const handleUploadReview = async(con,tag,rat) =>{
     try {
-      const res = await axios.post('http://localhost:3500/tickets',{
+      const res = await axios.post('http://localhost:3500/reviews',{
         movie_name : movieName,
         hashtags : tag,
         content : con,
@@ -332,7 +360,7 @@ export const DataContext = ({ children }) => {
       navigate('/');
     } catch (err) {
       if(err.response){
-        console.log(err.response.data.message);
+        alert(err.response.data.message);
         console.log(err.response.status);
       }
       console.log(`Error : ${err.message}`);
@@ -361,8 +389,8 @@ export const DataContext = ({ children }) => {
         profile, setProfile, checkRefreshToken, fetchScreenData, screen, time, date,
         setTime, setDate, cost, setCost, selectedSeats, setSelectedSeats, setSnacksCost, snacksCost,
         fetchMovies, extractData ,movies, kollywood, bollywood, mollywood, anime, updates, setMovies, setAnime, setBollywood, setKollywood, setMollywood, setUpdates,
-        singleMovie, setSingleMovie, movieName, setMovieName, getSingleMovie, handlePayment, 
-        handleCancelTicket, handleUploadReview, handleLogOut
+        singleMovie, setSingleMovie, movieName, setMovieName, getSingleMovie, handlePayment, tickets,
+        handleCancelTicket, handleUploadReview, handleLogOut, getReview, reviews
     }}>
       { children }
     </Data.Provider>

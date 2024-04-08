@@ -1,0 +1,98 @@
+.header{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 25px;
+    z-index: 100;
+    box-shadow: 0px 0px 10px 5px  black;
+    height: 100px;
+}
+
+.header div{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-left: 2rem;
+}
+
+.header div img{
+    display: block;
+    width: 10%;
+    height: 80%;
+}
+
+.header div h3{
+    font-size: 2rem;
+}
+
+.header div h3 span {
+    color: var(--mainColor);
+    margin-left: .5ch;
+}
+
+.header nav{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding-top: 30px;
+    margin-right: 20px;
+}
+
+.header nav a{
+    display: block;
+    transition: 0.6s;
+    text-decoration: none;
+    
+    p{
+        opacity: 0;
+        padding: 0;
+    }
+}
+
+.header nav a:hover{
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    p{
+        opacity: 1;
+         
+    }
+}
+
+.header nav div{
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+    button{
+        opacity: 0;
+        background-color: transparent;
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: black;
+    }
+}
+.header nav div:hover{
+    background-color: rgba(107, 107, 107, 0.45);
+    border-radius: 20px;
+    padding: 10px;
+    button{
+        opacity: 1;
+        color: var(--mainColor);
+    }
+}
+.header nav div:hover button:hover{
+    color: red;
+}
+.header nav div>img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 30px;
+}

@@ -1,8 +1,13 @@
 import React, { useContext } from 'react';
 import Data from '../../DataContext';
+import { useNavigate } from 'react-router-dom';
 
 const OtherImages = () => {
     const { singleMovie } = useContext(Data);
+    const navigate = useNavigate();
+    if(!singleMovie){
+      navigate('/');
+    }
 
   return (
     <section>

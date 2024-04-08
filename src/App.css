@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Press+Start+2P&display=swap");
 
 *{
   margin: 0;
@@ -13,6 +17,14 @@
   --text: #E3E3E3;
   
 }
+
+body{
+  font-family: 'Lexend';
+  color: white;
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(14,19,22,1) 74%, rgba(0,212,255,1) 100%);
+}
+
 /* utilities */
 .remove {
   display : none;
@@ -25,8 +37,11 @@
 .add-block {
   display: block;
 }
-/*header page */
+
+/* HEADER PAGE */
+
 .header {
+/*   background-color:rgba(0, 0, 0, 0.2); */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,7 +78,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: -10;
+  filter: brightness(20%);
 }
 
 .signup .head{
@@ -75,13 +90,13 @@
 }
 
 .head>img, .head>a img{
-  width: 80px;
+  width: 100px;
   height: auto;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   backdrop-filter: blur(4.2px);
-  object-fit:fill;
+  object-fit:cover;
   display: block;
 }
 
@@ -90,6 +105,7 @@
   font-size: 1.8rem;
   text-transform: capitalize;
   margin: auto 0;
+  z-index: 22;
 }
 .signup .form{
   width: 60vw;
@@ -176,7 +192,7 @@
   font: normal normal 500 .8rem 'Poppins';
   padding: 5px 8px;
   border-radius: 10px;
-  margin-right: 30px;
+  margin-right: 100px;
 }
 .signup .form section div input[type="file"]::before{
   content: 'upload profile: ';
@@ -197,6 +213,187 @@
 }
 .signup .form section div svg, .signup .form section div .svg{
   position: relative;
-  top: -90%;
+  top: -75%;
   left: 90%;
+}
+
+/* LANDING PAGE */
+
+.landing {
+  width: 100%;
+  background: rgba(0,0,0,0.3);
+  overflow: hidden;
+  height: 3330px;
+}
+
+.landing h2{
+  text-shadow: 5px 5px black;
+}
+.landing p{
+  text-shadow: 2px 2px black;
+}
+
+.landing .section2 video , .landing .section3 video , .landing .section4 video{ 
+  filter: brightness(40%);
+}
+
+.landing .section1, .landing .section1 .container{
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.landing .section1 .container .firstChild{
+  margin-top: 90px;
+  width: 100%;
+}
+
+.landing .section1 .container {
+  padding: 0 265px 0 145px;
+  display: flex;
+}
+
+.landing section h2{
+  text-transform: capitalize;
+  font: normal normal bold 4rem 'Poppins';
+  width: 25%;
+  line-height: 1.8ch;
+  margin: 1.5ch 0 1ch 0; 
+}
+
+.landing section p{
+  color: var(--mainColor);
+  width: 60%;
+  font: normal normal 500 1.5rem 'Poppins';
+}
+.landing .section1 .container .landingGif {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.landing .section1 .container .landingGif img{
+  display: block;
+  width: 180px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin: 20px;
+  transition: 0.6s;
+}
+.landing .section1 .container .landingGif img:hover{
+  height: 600px;
+  width: 200px;
+}
+
+.landing .section2 {
+  position: relative;
+  top: 830px;
+}
+
+.landing .section2 .container {
+  position: relative;
+  bottom: 650px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+}
+
+.landing .section2 .container h2{
+  width: max-content;
+}
+
+.landing .section2 .container h2 span { 
+  display: block;
+  color: var(--mainColor);
+  width: max-content;
+  margin: 0 auto;
+}
+.landing .section2 .container p{
+  padding-bottom: 60px;
+} 
+
+.landing .section3 {
+  position: relative;
+  top: 400px;
+}
+
+.landing .section3 .container{
+  position: relative;
+  bottom: 850px;
+  left: 160px;
+}
+
+.landing .section3 .container h2{
+  margin-bottom: 15px;
+}
+
+.landing .section3 .landingGif img , .landing .section4 .landingGif img{
+  display: block;
+  width: 300px;
+  height: 200px;
+  border-radius: 25px;
+  object-fit: cover;
+  transition: 0.6s;
+}
+.landing .section3 .landingGif ,.landing .section4 .landingGif{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 200px;
+  margin-right: 300px;
+  gap: 20px;
+
+}
+.landing .section3 .landingGif img:hover{
+  width: 600px;
+}
+.landing .section4 .landingGif img:hover{
+  width: 500px;
+  height: 300px;
+}
+
+.landing .section3 h2 {
+  width: max-content;
+}
+.landing .section3 h2 span{
+  display: block;
+  color: var(--mainColor);
+  width: max-content;
+  margin-left: 0;
+  margin-right: 0;
+}
+.landing .section4{
+  position: relative;
+  bottom: 280px;
+}
+
+.landing .section4 .container{
+  position: relative;
+  bottom: 830px;
+  left: 160px;
+}
+.landing .section4 .landingGif{
+  margin-top: 100px;
+}
+.landing .section4 .container a{
+  font: normal normal 600 1.5rem 'Poppins';
+  color: black;
+  display: block;
+  padding: 5px 15px;
+  background-color: var(--mainColor) ;
+  width: max-content;
+  text-decoration: none;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: 300px;
+  margin-top: 40px;
+  transition: 0.5s;
+}
+.landing .section4 .container a:hover{
+  box-shadow: 0px 0px 15px 4px var(--mainColor);
+  background-color: black;
+  color: white;
 }

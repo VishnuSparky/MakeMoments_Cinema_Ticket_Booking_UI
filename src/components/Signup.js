@@ -53,7 +53,7 @@ const Signup = () => {
     <main className='signup'>
       <div className='bg-video'>
         <video width={"100%"} height={"100%"} autoPlay loop muted>
-          <source src='assets/2023Recap.mp4' type='video/mp4'></source>
+          <source src={`${process.env.PUBLIC_URL}/assets/LSbgvideo.mp4`}/>
         </video>
       </div>
       <div className='head'>
@@ -97,7 +97,7 @@ const Signup = () => {
         </section>
         <section>
           <img src={`${process.env.PUBLIC_URL}/assets/login/authgif.gif`} alt='signup animation'/>
-          <button onClick={(event) => { handleSignup(event, userName, password, email, phoneno)}}>submit</button>
+          <button onClick={(event) => { handleSignup(event, userName, password, email, phoneno)}}>SUBMIT</button>
           <p>already have an accound? <Link to={'/login'}>login</Link></p>
         </section>
       </form>

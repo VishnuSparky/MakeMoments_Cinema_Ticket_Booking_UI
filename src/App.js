@@ -15,6 +15,7 @@ import SelectSeats from './components/bookings/SelectSeats';
 import Payment from './components/bookings/Payment';
 import Notifications from './Notifications';
 import UploadReview from './components/movies/UploadReview';
+import DBH from './components/games/DBH';
 
 function App() {
   
@@ -40,6 +41,7 @@ function App() {
             <Route path='signup' element={<Signup />} />
           </Route>
           <Route path='notification' element={<Notifications />} />
+          <Route path='game' element={<DBH />} />
         </Route>
       </Routes>
     </DataContext>

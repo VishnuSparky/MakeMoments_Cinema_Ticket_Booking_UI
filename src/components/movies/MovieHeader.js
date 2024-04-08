@@ -2,6 +2,7 @@ import React,{ useContext } from 'react';
 import Data from '../../DataContext';
 import { FaRegStar } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+import '../../styles/movieheader.css';
 
 const MovieHeader = () => {
   const { singleMovie } = useContext(Data);
@@ -26,7 +27,7 @@ const MovieHeader = () => {
               <FaRegStar />
               <FaRegStar />
             </p>
-            <p> {singleMovie.ratings} {'['} {singleMovie.votes} {']'} </p>
+            <p> {singleMovie.ratings} {'['}{singleMovie.votes}{'votes]'} </p>
             <button onClick={()=>{ navigate('/movies/uploadReview')}}> RATE NOW </button>
           </div>
         </div>

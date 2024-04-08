@@ -5,6 +5,7 @@ import MovieHeader from './MovieHeader';
 import CastCrew from './CastCrew';
 import OtherImages from './OtherImages';
 import Reviews from './Reviews';
+import '../../styles/singlemovie.css';
 
 const SingleMovie = () => {
   const { userName,fetchScreenData, singleMovie } = useContext(Data);
@@ -16,22 +17,27 @@ const SingleMovie = () => {
     navigate('/book');
   }
 
- /*  useEffect(()=>{
-    if(!singleMovie){
-      navigate('/');
-    }
-  },[]); */
+  if(!singleMovie){
+    navigate('/');
+  }
+
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[]);
 
   return (
     singleMovie ?
     <main className='movie'>
       <img src={singleMovie.poster} alt='movieBg' />
-      <MovieHeader />
-      <OtherImages />
-      <CastCrew />
-      <Reviews />
-      { singleMovie.screening ? <button onClick={handleBookNow}> BOOK NOW </button> : <p> not screening...</p>}
+      <div className='moviecontainer'>
+        <MovieHeader />
+        <OtherImages />
+        <CastCrew />
+        <Reviews />
+        { singleMovie.screening && userName ? <button onClick={handleBookNow}> BOOK NOW </button> : <p> Please Login... </p>}
+      </div>
     </main> : <p> loading...</p>
+
   )
 }
 

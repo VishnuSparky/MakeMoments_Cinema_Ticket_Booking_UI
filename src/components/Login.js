@@ -45,11 +45,12 @@ const Login = () => {
     setAuthPage(true);
   },[setAuthPage,authPage]);
 
+   /* video credit goes to the editors sirneox,molob,probzy,bypingvi,barro and RK */ 
   return (
     <main className='signup'>
       <div className='bg-video'>
         <video width={"100%"} height={"100%"} autoPlay loop muted>
-          <source src='assets/2023Recap.mp4' type='video/mp4'></source>
+          <source src={`${process.env.PUBLIC_URL}/assets/LSbgvideo.mp4`}/>
         </video>
       </div>
       <div className='head'>
@@ -74,7 +75,7 @@ const Login = () => {
         </section>
         <section>
           <img src={`${process.env.PUBLIC_URL}/assets/login/authgif.gif`} alt='signup animation'/>
-          <button onClick={(event) => { handleLogin(event, email, password)}}>submit</button>
+          <button onClick={(event) => { handleLogin(event, email, password)}}>SUBMIT</button>
           <p>don't have an accound? <Link to={'signup'}>signup</Link></p>
         </section>
       </form>

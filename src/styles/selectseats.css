@@ -1,0 +1,80 @@
+.selectSeats{
+    background-image: url('http://localhost:3000/assets/landing/screeni.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+
+    h2{
+        text-transform: capitalize;
+        margin-top: 10rem;
+        color: rgba(240, 233, 53, 1);
+        font-size: 2.5rem;
+    }
+
+    &>div{
+        margin-top: 10rem;
+
+        h2{
+            margin-top: 0;
+        }
+    }
+}
+.selectSeats #seats>div{
+    margin: 0 auto;
+    width: max-content;
+}
+
+.selectSeats #seats p{
+    width: max-content;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.selectSeats #seats svg{
+   width: 25px;
+   height: 25px;
+   margin: 0 4px;
+}
+.selectSeats #seats>img{
+    width: 450px;
+    height: 60px;
+    margin-top: 25px;
+}
+.selectSeats>:last-child{
+    h2{
+        font-size: 3rem;
+        color: white;
+    }
+    div{
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+
+        p{
+            font-weight: 500;
+            background-color:  rgba(240, 233, 53, 1);
+            color: black;
+            padding: 10px 13px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    }
+    button{
+        background-color: var(--mainColor);
+        color: black;
+        font-size: 1.5rem;
+        border-radius: 20px;
+        font-weight: bold;
+        padding: 10px 15px;
+        position: fixed;
+        bottom: 60px;
+        right: 220px;
+    }
+}
+.selectSeats~footer{
+    display: none;
+}

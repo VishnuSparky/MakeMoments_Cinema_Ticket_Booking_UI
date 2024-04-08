@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Data from '../../DataContext';
 import { MdOutlineEventSeat } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import '../../styles/selectseats.css';
 
 const SelectSeats = () => {
     const { screen, time, setSelectedSeats, selectedSeats, setCost, cost, singleMovie } = useContext(Data);
@@ -11,14 +12,31 @@ const SelectSeats = () => {
     if(time === '1.00PM') bookedSeats = screen.show2;
     if(time === '4.30PM') bookedSeats = screen.show3;
     const handleSeat = (e,val,c) => {
-        e.target.style.color = 'blue';
+        if(selectedSeats.includes(val)){
+            console.log(selectedSeats);
+            let dupseats = selectedSeats.filter((value) =>{ if(value !== val) return value;});
+            setSelectedSeats(dupseats);
+            setCost(cost-c);
+            e.target.style.color = 'white';
+            console.log(dupseats);
+            return;
+        }
+        e.target.style.color = '#00FFFF';
         setSelectedSeats([...selectedSeats, val]);
         setCost(cost+c);
+    }
+
+    const handleBookNow = (e) =>{
+        if(cost <= 0 || cost === 0){
+            alert('please select seats.. :(');
+        } else{
+            navigate('/book/payment');
+        }
     }
    
   return (
     <main className='selectSeats'>
-      <h2>{screen.screenName}</h2>
+      <h2>{`Screen ${screen.screenName}`}</h2>
       <div id='seats'>
         <div>
             <p>--------first class Rs.220----------</p>
@@ -32,6 +50,8 @@ const SelectSeats = () => {
             { bookedSeats.includes(8) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,8,220)}} />} 
             { bookedSeats.includes(9) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,9,220)}} />} 
             { bookedSeats.includes(10) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,10,220)}} />} 
+        </div>
+        <div>
             { bookedSeats.includes(11) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,11,220)}} />} 
             { bookedSeats.includes(12) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,12,220)}} />} 
             { bookedSeats.includes(13) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,13,220)}} />} 
@@ -42,19 +62,21 @@ const SelectSeats = () => {
             { bookedSeats.includes(18) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,18,220)}} />} 
             { bookedSeats.includes(19) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,19,220)}} />} 
             { bookedSeats.includes(20) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,20,220)}} />} 
+        </div>
+        <div>
             { bookedSeats.includes(21) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,21,220)}} />} 
             { bookedSeats.includes(22) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,22,220)}} />} 
             { bookedSeats.includes(23) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,23,220)}} />} 
             { bookedSeats.includes(24) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,24,220)}} />} 
             { bookedSeats.includes(25) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,25,220)}} />} 
+            { bookedSeats.includes(26) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,26,220)}} />} 
+            { bookedSeats.includes(27) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,27,220)}} />} 
+            { bookedSeats.includes(28) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,28,220)}} />} 
+            { bookedSeats.includes(29) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,29,220)}} />} 
+            { bookedSeats.includes(30) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,30,220)}} />} 
         </div>
         <div>
             <p>--------second class Rs.190----------</p>
-            { bookedSeats.includes(26) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,26,190)}} />} 
-            { bookedSeats.includes(27) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,27,190)}} />} 
-            { bookedSeats.includes(28) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,28,190)}} />} 
-            { bookedSeats.includes(29) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,29,190)}} />} 
-            { bookedSeats.includes(30) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,30,190)}} />} 
             { bookedSeats.includes(31) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,31,190)}} />} 
             { bookedSeats.includes(32) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,32,190)}} />} 
             { bookedSeats.includes(33) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,33,190)}} />} 
@@ -65,6 +87,8 @@ const SelectSeats = () => {
             { bookedSeats.includes(38) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,38,190)}} />} 
             { bookedSeats.includes(39) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,39,190)}} />} 
             { bookedSeats.includes(40) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,40,190)}} />} 
+        </div>
+        <div>
             { bookedSeats.includes(41) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,41,190)}} />} 
             { bookedSeats.includes(42) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,42,190)}} />} 
             { bookedSeats.includes(43) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,43,190)}} />} 
@@ -77,7 +101,7 @@ const SelectSeats = () => {
             { bookedSeats.includes(50) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,50,190)}} />} 
         </div>
         <div>
-            <p>--------third class Rs.150----------</p>
+            <p>--------Third class Rs.120----------</p>
             { bookedSeats.includes(51) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,51,120)}} />} 
             { bookedSeats.includes(52) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,52,120)}} />} 
             { bookedSeats.includes(53) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,53,120)}} />} 
@@ -88,6 +112,8 @@ const SelectSeats = () => {
             { bookedSeats.includes(58) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,58,120)}} />} 
             { bookedSeats.includes(59) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,59,120)}} />} 
             { bookedSeats.includes(60) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,60,120)}} />} 
+        </div>
+        <div>
             { bookedSeats.includes(61) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,61,120)}} />} 
             { bookedSeats.includes(62) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,62,120)}} />} 
             { bookedSeats.includes(63) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,63,120)}} />} 
@@ -98,6 +124,8 @@ const SelectSeats = () => {
             { bookedSeats.includes(68) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,68,120)}} />} 
             { bookedSeats.includes(69) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,69,120)}} />} 
             { bookedSeats.includes(70) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,70,120)}} />} 
+        </div>
+        <div>
             { bookedSeats.includes(71) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,71,120)}} />} 
             { bookedSeats.includes(72) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,72,120)}} />} 
             { bookedSeats.includes(73) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,73,120)}} />} 
@@ -108,6 +136,8 @@ const SelectSeats = () => {
             { bookedSeats.includes(78) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,78,120)}} />} 
             { bookedSeats.includes(79) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,79,120)}} />} 
             { bookedSeats.includes(80) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,80,120)}} />} 
+        </div>
+        <div>
             { bookedSeats.includes(81) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,81,120)}} />} 
             { bookedSeats.includes(82) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,82,120)}} />} 
             { bookedSeats.includes(83) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,83,120)}} />} 
@@ -118,6 +148,8 @@ const SelectSeats = () => {
             { bookedSeats.includes(88) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,88,120)}} />} 
             { bookedSeats.includes(89) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,89,120)}} />} 
             { bookedSeats.includes(90) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,90,120)}} />} 
+        </div>
+        <div>
             { bookedSeats.includes(91) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,91,120)}} />} 
             { bookedSeats.includes(92) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,92,120)}} />} 
             { bookedSeats.includes(93) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,93,120)}} />} 
@@ -141,6 +173,8 @@ const SelectSeats = () => {
             { bookedSeats.includes(108) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,108,75)}} />} 
             { bookedSeats.includes(109) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,109,75)}} />} 
             { bookedSeats.includes(110) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,110,75)}} />} 
+        </div>
+        <div>
             { bookedSeats.includes(111) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,111,75)}} />} 
             { bookedSeats.includes(112) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,112,75)}} />} 
             { bookedSeats.includes(113) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,113,75)}} />} 
@@ -150,7 +184,9 @@ const SelectSeats = () => {
             { bookedSeats.includes(117) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,117,75)}} />} 
             { bookedSeats.includes(118) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,118,75)}} />} 
             { bookedSeats.includes(119) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,119,75)}} />} 
-            { bookedSeats.includes(75) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,120,75)}} />} 
+            { bookedSeats.includes(120) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,120,75)}} />} 
+        </div>
+        <div>
             { bookedSeats.includes(121) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,121,75)}} />} 
             { bookedSeats.includes(122) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,122,75)}} />} 
             { bookedSeats.includes(123) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,123,75)}} />} 
@@ -161,7 +197,8 @@ const SelectSeats = () => {
             { bookedSeats.includes(128) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,128,75)}} />} 
             { bookedSeats.includes(129) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,129,75)}} />} 
             { bookedSeats.includes(130) ? <MdOutlineEventSeat style={{ color: 'gray'}}/> : <MdOutlineEventSeat onClick={(e) => { handleSeat(e,130,75)}} />}
-          </div>
+        </div>
+         <img src={`${process.env.PUBLIC_URL}/assets/selectseats/screen.png`} alt='screens'/>
       </div>
       <div>
         <h2> {singleMovie.name} </h2>
@@ -169,7 +206,7 @@ const SelectSeats = () => {
           <p> {singleMovie.dimention} </p>
           <p> {singleMovie.language} </p>
         </div>
-        <button onClick={()=>{ navigate('/book/payment')}}> BOOK NOW </button>
+        <button onClick={handleBookNow}> BOOK NOW </button>
       </div>
     </main>
   )

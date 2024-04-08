@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext ,useEffect } from 'react';
 import Data from '../../DataContext';
 import KollywoodData from '../../api/KollywoodData';
 import BollywoodData from '../../api/BollywoodData';
 import MollywoodData from '../../api/MollywoodData';
 import AnimeData from '../../api/AnimeData';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/allMovies.css';
 
 const AllMovies = () => {
   const { kollywood, bollywood, mollywood, anime, setMovieName } = useContext(Data);
@@ -21,28 +22,28 @@ const AllMovies = () => {
     return (
       <div className='singleMovie' key={index}>
         <img src={data.poster} alt={data.name} />
-        <div className='details'>
-          <img src={data.poster} alt={data.name} />
-          <div>
-            <h3> {data.name} </h3>
-            <p> {data.category} </p>
-            <p> {data.duration} </p>
-            <p> {data.about} </p>
-            <button onClick={moveToMovie}> get info </button>
-          </div>
+        <div>
+          <h3> {data.name} </h3>
+          <p> {data.category} </p>
+          <p> {data.duration} </p>
+          <p className='about'> {data.about} </p>
+          <button onClick={moveToMovie}>Get Info</button>
         </div>
       </div>
     );
   }
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[]);
+
 
   return (
-    <main className='allMovies'>
+    <main className='AllMoviesPage'>
       <h1> M O V I E S </h1>
-
       <section className='container'>
         <div className='heading'>
           <h2> KOLLYWOOD </h2>
-          <div className='bookAnimation'> book now </div>
+          <img src={`${process.env.PUBLIC_URL}/assets/allmovies/booknow.gif`} alt='bookgif'/>
         </div>
         <div className='movies'>
           {
@@ -53,9 +54,9 @@ const AllMovies = () => {
         </div>
       </section>
       <section className='container'>
-      <div className='heading'>
+        <div className='heading'>
           <h2> BOLLYWOOD </h2>
-          <div className='bookAnimation'> book now </div>
+          <img src={`${process.env.PUBLIC_URL}/assets/allmovies/booknow.gif`} alt='bookgif'/>
         </div>
         <div className='movies'>
         {
@@ -68,7 +69,7 @@ const AllMovies = () => {
       <section className='container'>
       <div className='heading'>
           <h2> MOLLYWOOD </h2>
-          <div className='bookAnimation'> book now </div>
+          <img src={`${process.env.PUBLIC_URL}/assets/allmovies/booknow.gif`} alt='bookgif'/>
         </div>
         <div className='movies'>
         {
@@ -81,7 +82,7 @@ const AllMovies = () => {
       <section className='container'>
         <div className='heading'>
           <h2> ANIME </h2>
-          <div className='bookAnimation'> book now </div>
+          <img src={`${process.env.PUBLIC_URL}/assets/allmovies/booknow.gif`} alt='bookgif'/>
         </div>
         <div className='movies'>
         {

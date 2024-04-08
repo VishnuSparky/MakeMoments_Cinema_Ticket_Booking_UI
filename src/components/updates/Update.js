@@ -17,29 +17,31 @@ const Update = () => {
   return (
     <section className='updates'>
         <img src={poster} alt='updateBackground' />
-        <h2> updates </h2>
         <div className='container'>
-          <img src={poster} alt={movieName} />
-          <div className='details'>
-            <h3>{ movieName }</h3>
-            <p> actor : { actor } </p>
-            <p> actress : { actress} </p>
-            <p> director : { director} </p>
-            <p> music : { music} </p>
-            <Link to={'/updates'}>see all{'>>'}</Link>   {/* changes happened here*/}
+          <h2> updates </h2>
+          <div>
+            <img src={poster} alt={movieName} />
+            <div className='details'>
+              <h3>{ movieName }</h3>
+              <p> actor : { actor } </p>
+              <p> actress : { actress} </p>
+              <p> director : { director} </p>
+              <p> music : { music} </p>
+              <Link to={'/updates'}>see all  {'>>'}</Link> 
+            </div>
+            <IoMdArrowDropright onClick={()=>{ 
+              if(count >= (updatesData.length-1))
+                  setCount(0);
+              else
+                  setCount(++count);
+              setMovieName(updatesData[count].name);
+              setPoster(updatesData[count].poster);
+              setActor(updatesData[count].actor.name);
+              setActress(updatesData[count].actress.name);
+              setDirector(updatesData[count].director.name);
+              setMusic(updatesData[count].music.name);
+            }}/>
           </div>
-          <IoMdArrowDropright onClick={()=>{ 
-            if(count >= (updatesData.length-1))
-                setCount(0);
-            else
-                setCount(++count);
-            setMovieName(updatesData[count].name);
-            setPoster(updatesData[count].poster);
-            setActor(updatesData[count].actor.name);
-            setActress(updatesData[count].actress.name);
-            setDirector(updatesData[count].director.name);
-            setMusic(updatesData[count].music.name);
-          }}/>
         </div>
       </section>
   )

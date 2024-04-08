@@ -1,0 +1,54 @@
+.AllUpdatesPage{
+    width: 100%;
+    margin-top: 10rem;
+
+    h2{
+        font-size: 1.9rem;
+        color: var(--mainColor);
+        letter-spacing: 1ch;
+        width: max-content;
+        text-transform: uppercase;
+        margin: 40px auto;
+    }
+}
+.AllUpdatesPage>div{
+    width: auto;
+    height: 850px;
+}
+.AllUpdatesPage>div>img{
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+    filter: brightness(30%);
+}
+
+.AllUpdatesPage>div .details{
+    position: relative;
+    top: -200px;
+    left: 50px;
+    padding-left: .5rem;
+    border-left: 4px solid var(--mainColor);
+    h3{
+        text-transform: capitalize;
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    p{
+       text-transform: capitalize; 
+     
+    }
+}
+.AllUpdatesPage>div .casts{
+    position: relative;
+    top: -330px;
+    left: 840px;
+    display: flex;
+    gap: 1rem;
+    img{
+        display: block;
+        width: 135px;
+        height: 135px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}

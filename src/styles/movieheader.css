@@ -1,0 +1,80 @@
+.movieHeader{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+
+    img{
+        display: block;
+        width: 290px;
+        height: 285x;
+        border-radius: 20px;
+    }
+}
+
+.movieHeader>div>:first-child{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    h2{
+        text-transform: uppercase;
+        font-size: 3rem;
+        font-weight: bold;
+        width: max-content;
+        margin: 0 auto;
+    }
+
+    p{
+        width: max-content;
+        height: max-content;
+        color: black;
+        background-color: white;
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: medium;
+        font-weight: 500;
+        margin: 0 .5rem;
+    }
+}
+
+.movieHeader>div>:nth-child(2){
+    &>:first-child{
+        text-transform: uppercase;
+    }
+    &>:nth-child(2){
+        width: max-content;
+        margin: .2rem auto .8rem 0;
+    }
+    &>:nth-child(3){
+        width: 80%;
+        margin-right: auto;
+    }
+    &>:last-child{
+        margin-top: 1rem;
+        width: 60%;
+        display: flex;
+        align-items: center;
+
+        p{
+            color: var(--mainColor);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: .5rem;
+
+            svg{
+                font-size: 2rem;
+            }
+        }
+
+        button{
+            color: black;
+            background-color: var(--mainColor);
+            text-transform: capitalize;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-left: auto;
+        }
+    }
+}

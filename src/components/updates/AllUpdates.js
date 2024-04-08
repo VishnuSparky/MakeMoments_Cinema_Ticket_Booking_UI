@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import UpdatesData from '../../api/UpdatesData';
 import Data from '../../DataContext';
+import '../../styles/allupdates.css';
 
 const AllUpdates = () => {
   const { updates } = useContext(Data);
   let updatesData = updates.length>0 ? updates : UpdatesData;
 
   return (
-    <main className='updates'>
+    <main className='AllUpdatesPage'>
       <h2>updates</h2>
       {
         updatesData.map( movie => (
@@ -21,10 +22,10 @@ const AllUpdates = () => {
               <p> music : {movie.music.name} </p>
             </div>
             <div className='casts'>
-              <img src={movie.actor.image} alt={movie.actor.name} />
-              <img src={movie.actress.image} alt={movie.actress.name} />
-              <img src={movie.director.image} alt={movie.director.name} />
-              <img src={movie.music.image} alt={movie.music.name} />
+              <img src={movie.actor.pic} alt={movie.actor.name} />
+              <img src={movie.actress.pic} alt={movie.actress.name} />
+              <img src={movie.director.pic} alt={movie.director.name} />
+              <img src={movie.music.pic} alt={movie.music.name} />
             </div>
           </div>
         ))
